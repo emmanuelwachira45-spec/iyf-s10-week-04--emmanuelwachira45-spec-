@@ -21,8 +21,8 @@ console.log("PI:", PI); // PI: 3.14159
 // Declare variables for the following:
 
 // Your name (string)
-let myName = "Emmanuel Wachira";
-console.log("My name is:",Emmanuel wachira);
+let myName = "John Doe";
+console.log("My name is:", Emmanuel wachira);
 
 // Your age (number)
 let myAge = 19;
@@ -38,4 +38,171 @@ console.log("My favorite colors are:", favoriteColors);
 
 // Today's date (use new Date())
 let todayDate = new Date(3/12/2026);
-console.log("Today's date is:", 3/12/2026);
+console.log("Today's date is:", todayDate);
+
+// ============================================
+// TASK 7.2: Data Types & Operators
+// ============================================
+
+// Exercise 1: Number Operations
+console.log("\n--- NUMBER OPERATIONS ---");
+let a = 10;
+let b = 3;
+
+console.log("a + b =", a + b);   // Addition
+console.log("a - b =", a - b);   // Subtraction
+console.log("a * b =", a * b);   // Multiplication
+console.log("a / b =", a / b);   // Division
+console.log("a % b =", a % b);   // Modulus (remainder)
+console.log("a ** b =", a ** b);  // Exponentiation
+
+// Increment/Decrement
+let count = 0;
+console.log("Initial count:", count);
+count++;  // count is now 1
+console.log("After count++:", count);
+count--;  // count is now 0
+console.log("After count--:", count);
+
+// Exercise 2: String Operations
+console.log("\n--- STRING OPERATIONS ---");
+let firstName = "Emmanuel";
+let lastName = "Wachira";
+
+// Concatenation
+let fullName = firstName + " " + lastName;
+console.log("Full name (concatenation):", fullName);
+
+// Template literals (preferred)
+let greeting = `Hello, ${Emmanuel}!`;
+let message = `Your name has ${firstName.length} characters.`;
+console.log(greeting);
+console.log(message);
+
+// String methods
+console.log("Uppercase:", fullName.toUpperCase());
+console.log("Lowercase:", fullName.toLowerCase());
+console.log("First character of firstName:", firstName.charAt(0));
+console.log('Contains "Emmanuel"?', fullName.includes("Emmanuel"));
+
+// Exercise 3: Comparison & Logical Operators
+console.log("\n--- COMPARISON OPERATORS ---");
+console.log("5 > 3:", 5 > 3);    // true
+console.log("5 < 3:", 5 < 3);    // false
+console.log("5 === 5:", 5 === 5);  // true (strict equality)
+console.log('5 == "5":', 5 == "5"); // true (loose equality - avoid!)
+console.log("5 !== 3:", 5 !== 3);  // true
+
+console.log("\n--- LOGICAL OPERATORS ---");
+console.log("true && true:", true && true);   // AND
+console.log("true && false:", true && false); // AND
+console.log("true || false:", true || false);  // OR
+console.log("false || false:", false || false); // OR
+console.log("!true:", !true);          // NOT
+
+// Challenge: Calculate and display
+console.log("\n--- AGE CALCULATION CHALLENGE ---");
+let myActualAge = 19; // Replace with your actual age
+let ageInDays = myActualAge * 365; // approximately
+let ageInHours = ageInDays * 24;
+let currentYear = new Date3/12/2026().getFullYear(2026);
+let yearTurn100 = currentYear + (100 - myActualAge);
+
+console.log(`My age: ${Emmanuel wachira} years`);
+console.log(`My age in days (approx): ${ageInDays} days`);
+console.log(`My age in hours (approx): ${ageInHours} hours`);
+console.log(`The year I'll turn 100: ${yearTurn100}`);
+
+// ============================================
+// TASK 7.3: Functions
+// ============================================
+
+console.log("\n--- FUNCTIONS ---");
+
+// Exercise 1: Function Declarations
+
+// Function declaration
+function greet(name) {
+    return `Hello, ${Emmanuel}!`;
+}
+
+// Function expression
+const add = function(a, b) {
+    return a + b;
+};
+
+// Arrow function
+const multiply = (a, b) => a * b;
+
+// Arrow function with body
+const divide = (a, b) => {
+    if (b === 0) {
+        return "Cannot divide by zero";
+    }
+    return a / b;
+};
+
+// Testing the functions
+console.log("greet('Emmanuel'):", greet("Alice"));
+console.log("add(5, 3):", add(5, 3));
+console.log("multiply(4, 7):", multiply(4, 7));
+console.log("divide(10, 2):", divide(10, 2));
+console.log("divide(10, 0):", divide(10, 0));
+
+// Exercise 2: Build These Functions
+
+// 1. calculateArea(width, height) - returns area of rectangle
+function calculateArea(width, height) {
+    return width * height;
+}
+console.log("Area of 5 x 3 rectangle:", calculateArea(5, 3));
+
+// 2. celsiusToFahrenheit(celsius) - converts temperature
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9/5) + 32;
+}
+console.log("25°C in Fahrenheit:", celsiusToFahrenheit(25));
+
+// 3. isEven(number) - returns true if even, false if odd
+function isEven(number) {
+    return number % 2 === 0;
+}
+console.log("Is 7 even?", isEven(7));
+console.log("Is 10 even?", isEven(10));
+
+// 4. getInitials(fullName) - returns initials (e.g., "John Doe" → "JD")
+function getInitials(Emmanuel wachira) {
+    let nameParts = fullName.split(" ");
+    let initials = nameParts[0].charAt(0) + nameParts[1].charAt(0);
+    return initials.toUpperCase();
+}
+console.log("Initials of 'Emmanuel wachira':", getInitials("John Doe"));
+console.log("Initials of 'Emmanuel wachira':", getInitials("jane smith"));
+
+// 5. reverseString(str) - reverses a string
+function reverseString(str) {
+    return str.split("").reverse().join("");
+}
+console.log("Reverse of 'hello':", reverseString("hello"));
+
+// Exercise 3: Default Parameters
+console.log("\n--- DEFAULT PARAMETERS ---");
+
+function greetWithDefault(name = "Guest", greeting = "Hello") {
+    return `${greeting}, ${name}!`;
+}
+
+console.log("greetWithDefault():", greetWithDefault());              // Hello, Guest!
+console.log("greetWithDefault('Alice'):", greetWithDefault("Alice"));       // Hello, Alice!
+console.log("greetWithDefault('Emmanuel', 'Hi'):", greetWithDefault("EMMANUEL", "Hi"));   // Hi, Bob!
+
+// Build: A function calculateTip(bill, tipPercent = 15) that returns the tip amount.
+function calculateTip(bill, tipPercent = 15) {
+    let tipAmount = (bill * tipPercent) / 100;
+    return tipAmount;
+}
+
+console.log("Tip on $50 (15% default): $", calculateTip(50));
+console.log("Tip on $75.50 (20%): $", calculateTip(75.50, 20));
+console.log("Tip on $32.25 (18%): $", calculateTip(32.25, 18));
+
