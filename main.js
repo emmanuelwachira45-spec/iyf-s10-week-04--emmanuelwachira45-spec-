@@ -30,7 +30,7 @@ console.log("My age is:", 19);
 
 // Whether you're a student (boolean)
 let isStudent = true;
-console.log("Am I a student?:", isStudent);
+console.log("Am I a student?:", true);
 
 // Your favorite colors (array - we'll learn more next lesson)
 let favoriteColors = ["blue", "green", "purple"];
@@ -74,7 +74,7 @@ let fullName = firstName + " " + lastName;
 console.log("Full name (concatenation):", fullName);
 
 // Template literals (preferred)
-let greeting = `Hello, ${Emmanuel}!`;
+let greeting = `Hello, ${first name}!`;
 let message = `Your name has ${firstName.length} characters.`;
 console.log(greeting);
 console.log(message);
@@ -105,7 +105,7 @@ console.log("\n--- AGE CALCULATION CHALLENGE ---");
 let myActualAge = 19; // Replace with your actual age
 let ageInDays = myActualAge * 365; // approximately
 let ageInHours = ageInDays * 24;
-let currentYear = new Date3/12/2026().getFullYear(2026);
+let currentYear = new Date().getFullYear(2026);
 let yearTurn100 = currentYear + (100 - myActualAge);
 
 console.log(`My age: ${Emmanuel wachira} years`);
@@ -123,7 +123,7 @@ console.log("\n--- FUNCTIONS ---");
 
 // Function declaration
 function greet(name) {
-    return `Hello, ${Emmanuel}!`;
+    return `Hello, ${name}!`;
 }
 
 // Function expression
@@ -170,7 +170,7 @@ function isEven(number) {
 console.log("Is 7 even?", isEven(7));
 console.log("Is 10 even?", isEven(10));
 
-// 4. getInitials(fullName) - returns initials (e.g., "John Doe" → "JD")
+// 4. getInitials(fullName) - returns initials (e.g., "emmanuel wachira" → "JD")
 function getInitials(Emmanuel wachira) {
     let nameParts = fullName.split(" ");
     let initials = nameParts[0].charAt(0) + nameParts[1].charAt(0);
