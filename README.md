@@ -1,4 +1,4 @@
-# iyf-s10-week-04--emmanuelwachira45-spec-
+# iyf-s10-week-04-emmanuelwachira45-spec
 index.html
 <!DOCTYPE html>
 <html lang="en">
