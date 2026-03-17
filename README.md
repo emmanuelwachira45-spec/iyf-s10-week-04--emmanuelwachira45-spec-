@@ -11,3 +11,32 @@ index.html
     <script src="main.js"></script>
 </body>
 </html>
+# Week 1: My Project Title
+
+## Author
+- **Name:** Emmanuel Wachira
+- **GitHub:** https://github.com/your-username
+- **Date:** March 17, 2026
+
+## Project description 
+This project focuses on JavaScript fundamentals. It was built to practice core concepts such as variables, data types, operators, arrays, and basic functions. The goal was to strengthen understanding of how JavaScript works and how it can be used to create simple, interactive functionality within a web page.
+
+## Technologies Used
+- HTML5
+- CSS3
+- JavaScript
+
+## Features
+- Feature 1
+- Feature 2
+- Feature 3
+
+## How to Run
+1. Clone the repository
+2. Open index.html in your browser
+
+## Lessons Learned
+What you learned.
+
+## Challenges Faced
+Problems you faced and how you solved them.
