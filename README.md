@@ -36,7 +36,16 @@ This project focuses on JavaScript fundamentals. It was built to practice core c
 2. Open index.html in your browser
 
 ## Lessons Learned
-What you learned.
+How to declare and use variables with let and const.
+	•	Understanding different data types (string, number, boolean).
+	•	How to use arrays and access their elements.
+	•	Writing and calling simple functions.
+	•	Using console.log to debug and test code.
+	•	Basic logic with operators and conditional statements.
 
 ## Challenges Faced
-Problems you faced and how you solved them.
+Remembering the difference between let and const.
+	•	Keeping track of array indices when accessing elements.
+	•	Debugging errors when syntax mistakes were made.
+	•	Understanding how data types affect operations and comparisons.
+	•	Practicing writing functions correctly and calling them in the right order.
