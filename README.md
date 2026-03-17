@@ -15,7 +15,7 @@ index.html
 
 ## Author
 - **Name:** Emmanuel Wachira
-- **GitHub:** https://github.com/your-username
+- **GitHub:** https://github.com/emmanuelwachira45-spec
 - **Date:** March 17, 2026
 
 ## Project description 
