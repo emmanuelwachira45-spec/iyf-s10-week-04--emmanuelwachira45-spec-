@@ -67,7 +67,6 @@ let b = 3;
 console.log("a + b =", a + b);   // Addition
 console.log("a - b =", a - b);   // Subtraction
 console.log("a * b =", a * b);   // Multiplication
-console.log("a / b =", a / b);   // Division
 console.log("a % b =", a % b);   // Modulus (remainder)
 console.log("a ** b =", a ** b);  // Exponentiation
 
@@ -396,7 +395,318 @@ function subtract(a, b) {
 
 function multiply(a, b) {
     return a * b;
+}// ============================================
+// MINI-PROJECT: STUDENT GRADE TRACKER
+// ============================================
+
+console.log("\n📚 STUDENT GRADE TRACKER SYSTEM");
+console.log("=".repeat(50));
+
+const gradeTracker = {
+    students: [],
+    
+    // Add a new student
+    addStudent(name, grades) {
+        const student = {
+            name: name,
+            grades: grades
+        };
+        this.students.push(student);
+        console.log(`✅ Added: ${name} - Subjects: ${Object.keys(grades).join(", ")}`);
+        return student;
+    },
+    
+    // Get a student by name
+    getStudent(name) {
+        for (let i = 0; i < this.students.length; i++) {
+            if (this.students[i].name.toLowerCase() === name.toLowerCase()) {
+                return this.students[i];
+            }
+        }
+        return null;
+    },
+    
+    // Calculate a student's average
+    getStudentAverage(name) {
+        const student = this.getStudent(name);
+        if (!student) {
+            return `❌ Student "${name}" not found`;
+        }
+        
+        const grades = Object.values(student.grades);
+        if (grades.length === 0) return 0;
+        
+        let sum = 0;
+        for (let i = 0; i < grades.length; i++) {
+            sum += grades[i];
+        }
+        
+        const average = sum / grades.length;
+        return Math.round(average * 100) / 100;
+    },
+    
+    // Get class average for a subject
+    getSubjectAverage(subject) {
+        let total = 0;
+        let count = 0;
+        
+        for (let i = 0; i < this.students.length; i++) {
+            const student = this.students[i];
+            if (student.grades.hasOwnProperty(subject)) {
+                total += student.grades[subject];
+                count++;
+            }
+        }
+        
+        if (count === 0) {
+            return `❌ No grades found for "${subject}"`;
+        }
+        
+        const average = total / count;
+        return Math.round(average * 100) / 100;
+    },
+    
+    // Get top performer (student with highest overall average)
+    getTopStudent() {
+        if (this.students.length === 0) return null;
+        
+        let topStudent = this.students[0];
+        let topAverage = this.getStudentAverage(topStudent.name);
+        
+        for (let i = 1; i < this.students.length; i++) {
+            const currentAverage = this.getStudentAverage(this.students[i].name);
+            if (currentAverage > topAverage) {
+                topStudent = this.students[i];
+                topAverage = currentAverage;
+            }
+        }
+        
+        return {
+            name: topStudent.name,
+            average: topAverage,
+            grades: topStudent.grades
+        };
+    },
+    
+    // Get students needing help (average < 70)
+    getStrugglingStudents() {
+        const struggling = [];
+        
+        for (let i = 0; i < this.students.length; i++) {
+            const student = this.students[i];
+            const average = this.getStudentAverage(student.name);
+            
+            if (average < 70 && typeof average === 'number') {
+                struggling.push({
+                    name: student.name,
+                    average: average,
+                    grades: student.grades
+                });
+            }
+        }
+        
+        return struggling;
+    },
+    
+    // Get letter grade
+    getLetterGrade(score) {
+        if (score >= 90) return "A";
+        if (score >= 80) return "B";
+        if (score >= 70) return "C";
+        if (score >= 60) return "D";
+        return "F";
+    },
+    
+    // Generate report card
+    generateReportCard(name) {
+        const student = this.getStudent(name);
+        if (!student) {
+            return `❌ Student "${name}" not found`;
+        }
+        
+        const average = this.getStudentAverage(name);
+        const overallLetter = this.getLetterGrade(average);
+        
+        // Build the report card
+        let report = "\n" + "=".repeat(50) + "\n";
+        report += `           📋 REPORT CARD: ${student.name.toUpperCase()}\n`;
+        report += "=".repeat(50) + "\n\n";
+        
+        report += "SUBJECT".padEnd(15) + "GRADE".padEnd(10) + "LETTER\n";
+        report += "-".repeat(35) + "\n";
+        
+        // Get all subjects and sort alphabetically
+        const subjects = Object.keys(student.grades).sort();
+        
+        for (let i = 0; i < subjects.length; i++) {
+            const subject = subjects[i];
+            const grade = student.grades[subject];
+            const letter = this.getLetterGrade(grade);
+            
+            // Format subject name (capitalize first letter)
+            const subjectFormatted = subject.charAt(0).toUpperCase() + subject.slice(1);
+            report += subjectFormatted.padEnd(15) + grade.toString().padEnd(10) + letter + "\n";
+        }
+        
+        report += "\n" + "-".repeat(35) + "\n";
+        report += "OVERALL".padEnd(15) + average.toString().padEnd(10) + overallLetter + "\n";
+        report += "=".repeat(50) + "\n";
+        
+        return report;
+    },
+    
+    // Extra: Display class summary
+    displayClassSummary() {
+        console.log("\n📊 CLASS SUMMARY");
+        console.log("-".repeat(40));
+        console.log(`Total Students: ${this.students.length}`);
+        
+        // Get all unique subjects
+        const allSubjects = new Set();
+        for (let i = 0; i < this.students.length; i++) {
+            const subjects = Object.keys(this.students[i].grades);
+            for (let j = 0; j < subjects.length; j++) {
+                allSubjects.add(subjects[j]);
+            }
+        }
+        
+        console.log("\nSubject Averages:");
+        const subjectsList = Array.from(allSubjects).sort();
+        for (let i = 0; i < subjectsList.length; i++) {
+            const subject = subjectsList[i];
+            const avg = this.getSubjectAverage(subject);
+            console.log(`  ${subject}: ${avg}`);
+        }
+        
+        const topStudent = this.getTopStudent();
+        if (topStudent) {
+            console.log(`\n🏆 Top Student: ${topStudent.name} (${topStudent.average})`);
+        }
+        
+        const struggling = this.getStrugglingStudents();
+        if (struggling.length > 0) {
+            console.log(`\n⚠️ Struggling Students (<70):`);
+            for (let i = 0; i < struggling.length; i++) {
+                console.log(`  ${struggling[i].name} (${struggling[i].average})`);
+            }
+        }
+    }
+};
+
+// ============================================
+// TEST THE GRADE TRACKER
+// ============================================
+
+console.log("\n🧪 TESTING GRADE TRACKER");
+console.log("-".repeat(40));
+
+// Add students
+gradeTracker.addStudent("Alice", { math: 95, english: 88, science: 92 });
+gradeTracker.addStudent("Bob", { math: 72, english: 85, science: 78 });
+gradeTracker.addStudent("Charlie", { math: 60, english: 65, science: 58 });
+gradeTracker.addStudent("Diana", { math: 98, english: 94, science: 96, history: 90 });
+
+console.log("\n📊 STUDENT AVERAGES:");
+console.log("Alice's average:", gradeTracker.getStudentAverage("Alice"));      // 91.67
+console.log("Bob's average:", gradeTracker.getStudentAverage("Bob"));          // 78.33
+console.log("Charlie's average:", gradeTracker.getStudentAverage("Charlie"));  // 61.00
+console.log("Diana's average:", gradeTracker.getStudentAverage("Diana"));      // 94.50
+
+console.log("\n📚 SUBJECT AVERAGES:");
+console.log("Math average:", gradeTracker.getSubjectAverage("math"));          // 81.25
+console.log("English average:", gradeTracker.getSubjectAverage("english"));    // 83.00
+console.log("Science average:", gradeTracker.getSubjectAverage("science"));    // 81.00
+console.log("History average:", gradeTracker.getSubjectAverage("history"));    // 90.00
+
+console.log("\n🏆 TOP PERFORMER:");
+console.log(gradeTracker.getTopStudent());                 // Diana
+
+console.log("\n⚠️ STRUGGLING STUDENTS:");
+console.log(gradeTracker.getStrugglingStudents());         // [Charlie]
+
+console.log("\n📋 REPORT CARDS:");
+console.log(gradeTracker.generateReportCard("Alice"));
+console.log(gradeTracker.generateReportCard("Charlie"));
+
+// Display full class summary
+gradeTracker.displayClassSummary();
+// ============================================
+// DAILY CHALLENGE: FIZZBUZZ
+// ============================================
+
+console.log("\n🎮 FIZZBUZZ CHALLENGE");
+console.log("=".repeat(50));
+
+function fizzBuzz() {
+    console.log("\nFizzBuzz from 1 to 100:");
+    console.log("-".repeat(30));
+    
+    for (let i = 1; i <= 100; i++) {
+        if (i % 15 === 0) {
+            console.log(`  ${i}: FizzBuzz`);
+        } else if (i % 3 === 0) {
+            console.log(`  ${i}: Fizz`);
+        } else if (i % 5 === 0) {
+            console.log(`  ${i}: Buzz`);
+        } else {
+            // Only show every 10th number to keep console clean
+            if (i % 10 === 0 || i <= 20) {
+                console.log(`  ${i}: ${i}`);
+            }
+        }
+    }
 }
+
+// Run FizzBuzz
+fizzBuzz();
+
+// Alternative version that returns an array (more useful)
+function fizzBuzzArray(limit = 100) {
+    const result = [];
+    for (let i = 1; i <= limit; i++) {
+        if (i % 15 === 0) {
+            result.push("FizzBuzz");
+        } else if (i % 3 === 0) {
+            result.push("Fizz");
+        } else if (i % 5 === 0) {
+            result.push("Buzz");
+        } else {
+            result.push(i);
+        }
+    }
+    return result;
+}
+
+// Test the array version
+const fizzBuzzResults = fizzBuzzArray(30);
+console.log("\n📊 FizzBuzz Array Results (first 30):");
+console.log(fizzBuzzResults.join(", "));
+
+// Advanced version with custom rules
+function advancedFizzBuzz(limit = 100, rules = {
+    3: "Fizz",
+    5: "Buzz",
+    7: "Bang"
+}) {
+    console.log("\n🎯 Advanced FizzBuzz with custom rules:");
+    for (let i = 1; i <= limit; i++) {
+        let output = "";
+        for (const [divisor, word] of Object.entries(rules)) {
+            if (i % divisor === 0) {
+                output += word;
+            }
+        }
+        console.log(output || i);
+        
+        // Limit output for readability
+        if (i > 30) break;
+    }
+}
+
+// Test advanced version
+advancedFizzBuzz(100, {3: "Fizz", 5: "Buzz", 7: "Bang"});
+
+console.log("\n✅ FizzBuzz Complete!");
 
 function divide(a, b) {
     if (b === 0) {
