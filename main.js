@@ -342,3 +342,145 @@ console.log("CS majors:", csMajors);
 // 3. Get the average grade of all students
 const averageGrade = students.reduce((sum, student) => sum + student.grade, 0) / students.length;
 console.log("Average grade:", averageGrade);    
+// ============================================
+// TASK 7.1: VARIABLES
+// ============================================
+const myName = "Your Name";
+let myAge = 25;
+const isStudent = true;
+const favoriteColors = ["blue", "green", "black"];
+const today = new Date();
+
+console.log("My name is:", myName);
+console.log("I am", myAge, "years old");
+// ... rest of Task 7.1
+
+// ============================================
+// TASK 7.2: DATA TYPES & OPERATORS
+// ============================================
+let a = 10;
+let b = 3;
+console.log("Addition:", a + b);
+// ... rest of Task 7.2
+
+// ============================================
+// TASK 7.3: FUNCTIONS
+// ============================================
+function calculateArea(width, height) {
+    return width * height;
+}
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9/5) + 32;
+}
+// ... rest of Task 7.3
+
+// ============================================
+// TASK 7.4: CONTROL FLOW
+// ============================================
+function getGrade(score) {
+    if (score >= 90) return "A";
+    // ... rest
+}
+// ... rest of Task 7.4
+
+// ============================================
+// MINI-PROJECT: CALCULATOR
+// ============================================
+function add(a, b) {
+    return a + b;
+}
+
+function subtract(a, b) {
+    return a - b;
+}
+
+function multiply(a, b) {
+    return a * b;
+}
+
+function divide(a, b) {
+    if (b === 0) {
+        return "Error: Division by zero is not allowed";
+    }
+    return a / b;
+}
+
+function modulus(a, b) {
+    if (b === 0) {
+        return "Error: Modulus by zero is not allowed";
+    }
+    return a % b;
+}
+
+function power(a, b) {
+    return a ** b;
+}
+
+function calculate(num1, operator, num2) {
+    switch (operator) {
+        case "+":
+            return add(num1, num2);
+        case "-":
+            return subtract(num1, num2);
+        case "*":
+            return multiply(num1, num2);
+        case "/":
+            return divide(num1, num2);
+        case "%":
+            return modulus(num1, num2);
+        case "**":
+            return power(num1, num2);
+        default:
+            return "Invalid operator";
+    }
+}
+
+// Test Calculator
+console.log("\n--- CALCULATOR TESTS ---");
+console.log("10 + 5 =", calculate(10, "+", 5));
+console.log("10 - 5 =", calculate(10, "-", 5));
+console.log("10 * 5 =", calculate(10, "*", 5));
+console.log("10 / 5 =", calculate(10, "/", 5));
+console.log("10 / 0 =", calculate(10, "/", 0));
+console.log("10 % 3 =", calculate(10, "%", 3));
+console.log("2 ** 3 =", calculate(2, "**", 3));
+
+// ============================================
+// TASK 8.1: ARRAYS
+// ============================================
+const fruits = ["apple", "banana", "orange"];
+// ... rest of Task 8.1
+
+// ============================================
+// TASK 8.2: OBJECTS
+// ============================================
+const person = {
+    firstName: "John",
+    lastName: "Doe"
+};
+// ... rest of Task 8.2
+
+// ============================================
+// TASK 8.3: ARRAY OF OBJECTS
+// ============================================
+const students = [
+    { name: "Alice", age: 22, grade: 85, major: "CS" },
+    { name: "Bob", age: 20, grade: 72, major: "Math" }
+    // ... rest
+];
+
+// ============================================
+// MINI-PROJECT: GRADE TRACKER
+// ============================================
+const gradeTracker = {
+    students: [],
+    addStudent(name, grades) {
+        // ... code
+    }
+    // ... rest of grade tracker
+};
+
+// Test Grade Tracker
+console.log("\n--- GRADE TRACKER TESTS ---");
+gradeTracker.addStudent("Alice", { math: 95, english: 88, science: 92 });
+// ... rest of tests
