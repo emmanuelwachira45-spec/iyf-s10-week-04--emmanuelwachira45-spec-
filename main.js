@@ -84,7 +84,7 @@ let firstName = "Emmanuel";
 let lastName = "Wachira";
 
 // Concatenation
-let fullName = firstName + " " + lastName;
+    let fullName = firstName + " " + lastName;
 console.log("Full name (concatenation):", fullName);
 
 // Template literals (preferred)
