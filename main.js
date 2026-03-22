@@ -108,7 +108,7 @@ console.log('5 == "5":', 5 == "5"); // true (loose equality - avoid!)
 console.log("5 !== 3:", 5 !== 3);  // true
 
 console.log("\n--- LOGICAL OPERATORS ---");
-console.log("true && true:", true && true);   // AND
+console.log("true && true:",  true && true);   // AND
 console.log("true && false:", true && false); // AND
 console.log("true || false:", true || false);  // OR
 console.log("false || false:", false || false); // OR
@@ -116,7 +116,7 @@ console.log("!true:", !true);          // NOT
 
 // Challenge: Calculate and display
 console.log("\n--- AGE CALCULATION CHALLENGE ---");
-let myActualAge = 19; // Replace with your actual age
+let myActualAge =  19; // Replace with your actual age
 let ageInDays = myActualAge * 365; // approximately
 let ageInHours = ageInDays * 24;
 let currentYear = new Date().getFullYear(2026);
@@ -137,7 +137,7 @@ console.log("\n--- FUNCTIONS ---");
 
 // Function declaration
 function greet(name) {
-    return `Hello, ${name}!`;
+    return `Hello, ${name}!
 }
 
 // Function expression
