@@ -48,4 +48,4 @@ Remembering the difference between let and const.
 	•	Keeping track of array indices when accessing elements.
 	•	Debugging errors when syntax mistakes were made.
 	•	Understanding how data types affect operations and comparisons.
-	•	Practicing writing functions correctly and calling them in the right order.
+	•	Practicing writingfunctions correctly and calling them in the right order.
